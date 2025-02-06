@@ -9,10 +9,18 @@ def count_words(book_text):
         number += 1
     return number
 
+def count_characters(book_text):
+    lowered_string = book_text.lower()
+    characters = dict()
+    for char in lowered_string:
+        characters[char] = characters.get(char,0) + 1
+    return characters
+
 def main():
     book = "books/frankenstein.txt"
     text = read_book(book)
     count = count_words(text)
-    print(count)
+    characters = count_characters(text)
+    print(characters)
 
 main()
